@@ -1,0 +1,36 @@
+{
+    "firstName": "Aravind",
+    "lastName": "M",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaPTwpJVMsDpw7IXIjNzEbI2-tTlkIjzs6pBJ-4dKZpKEhCYKHpQ",
+    "details": [
+    {
+        "provider": "facebook",
+        "username": "mak11195",
+        "engagement": ["personal"],
+        "link": "facebook.com/mak11195"
+    },
+    {
+        "provider": "github",
+        "username": "makaravind",
+        "engagement": ["professional"],
+        "link": "https://github.com/makaravind"
+    },
+    {
+        "provider": "gmail",
+        "username": "aravindmetku@gmail.com",
+        "engagement": ["professional", "personal"]
+    },
+    {
+        "provider": "youtube",
+        "channel": "amyourmove",
+        "url": "youtube.com/c/amyourmove",
+        "engagement": ["professional"]
+    },
+    {
+        "provider": "wordpress",
+        "type": "blog",
+        "url": "https://maravindblog.wordpress.com",
+        "engagement": ["professional"]
+    }
+]
+}
