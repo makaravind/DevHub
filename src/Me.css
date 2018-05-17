@@ -1,0 +1,27 @@
+.Me {
+    text-align: center;
+}
+
+.Me-logo {
+    height: 80px;
+}
+
+.Me-header {
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: white;
+}
+
+.Me-title {
+    font-size: 1.5em;
+}
+
+.Me-intro {
+    font-size: large;
+}
+
+
+Me-link {
+    color : darkblue;
+}
