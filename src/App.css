@@ -1,10 +1,24 @@
+body{
+
+  font-family: fantasy;
+}
+
+
+
+.list_items{
+
+  font-size: 30px;
+list-style-type: none;
+}
+
+
 .App {
   text-align: center;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  /* animation: App-logo-spin infinite 20s linear; */
+  height: 100px;
 }
 
 .App-header {
