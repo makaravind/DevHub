@@ -37,8 +37,6 @@ function App ({user}) {
           <h1 className="App-title">Welcome {user.firstName} {user.lastName}</h1>
         </header>
 
-          {/*<DisplaySocialDetails socialDetails={user.details[0]} />*/}
-
           <Me userDetails={user.details}/>
       </div>
     );
