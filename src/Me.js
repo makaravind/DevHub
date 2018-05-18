@@ -1,10 +1,13 @@
 import React from 'react';
+import SocialDetails from "./SocialDetails";
 
-function Me({ data, toggle }) {
+function Me({userDetails}) {
     return (
         <div>
-            <h1>{data.firstName}</h1>
-            { toggle &&  <small>{data.lastName}</small>}
+            <h1>Social Presence</h1>
+            <ul>
+                {userDetails.map(detail => <li key={detail.id}><SocialDetails socialDetails={detail}/></li>)}
+            </ul>
         </div>
     )
 }
