@@ -15,8 +15,7 @@ class App extends Component {
             <div className="App">
                 <header className="App-header">
                     <img src={this.props.data.image} className="App-logo" alt="logo"/>
-                    <h1 className="App-title">Welcome {this.props.data.firstName}
-                        {this.props.data.lastName}</h1>
+                    <h1 className="App-title">Welcome {this.props.data.firstName} {this.props.data.lastName}</h1>
                 </header>
                 <Me userDetails={this.props.data.details}/>
             </div>

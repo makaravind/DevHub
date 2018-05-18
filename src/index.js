@@ -6,7 +6,7 @@ import App from './App';
 window.data = {
     firstName: 'Aravind',
     lastName: 'M',
-    image: '',
+    image: 'https://avatars0.githubusercontent.com/u/13570866?s=460&v=4',
     details: [
         {
             id:1,
