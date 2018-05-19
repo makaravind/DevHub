@@ -7,15 +7,30 @@ class Me extends Component {
         super(props);
 
         this.state = {
-            filter: 'test'
+            filter: 'test',
+            filteredProfiles: this.props.userDetails
         }
     }
 
     handleFilterChange = (event) => {
         let value = event.target.value;
         this.setState(currentState => {
-           return {filter: value}
+            return {filter: value}
         });
+    };
+
+    changeFilteredProfiles = () => {
+
+        let filteredProfiles = this.props.userDetails.filter((profile) => {
+            return profile.engagement.includes(this.state.filter)
+        });
+
+        if(filteredProfiles.length === 0) filteredProfiles = [...this.props.userDetails];
+
+        this.setState((currentState) => {
+            return {filteredProfiles: filteredProfiles}
+        })
+
     };
 
     render() {
@@ -23,8 +38,9 @@ class Me extends Component {
             <div>
                 <h1>Social Presence</h1>
                 <input type="text" value={this.state.filter} onChange={(e) => this.handleFilterChange(e)}/>
+                <button onClick={this.changeFilteredProfiles}>Search</button>
                 <ul>
-                    {this.props.userDetails.map(detail =>
+                    {this.state.filteredProfiles.map(detail =>
                         <li key={detail.id}>
                             <SocialDetail socialDetail={detail}/>
                         </li>
