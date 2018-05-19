@@ -7,7 +7,7 @@ function SocialDetails({socialDetail}) {
                 <strong>
                     <a href={socialDetail.url}>
                         {socialDetail.provider}
-                        </a>
+                    </a>
                 </strong>
                 {socialDetail.username && " - " + socialDetail.username}
                 {socialDetail.channel && " - " + socialDetail.channel}

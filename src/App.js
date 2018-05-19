@@ -7,14 +7,10 @@ import Counter from "./Counter";
 
 class App extends Component {
 
-    toggle = false;
-
     constructor(props) {
         super(props);
 
         this.state = {
-            // doShowLesson: false
-            showCounter: true,
             data: {
             firstName: 'Aravind',
             lastName: 'M',
@@ -75,7 +71,6 @@ class App extends Component {
                         {this.state.data.lastName}</h1>
                 </header>
                 <Me userDetails={this.state.data.details}/>
-                {/*{ this.state.showCounter && <Counter handleShowCounter={this.handleShowCounter}/> }*/}
             </div>
         );
     }
