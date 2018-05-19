@@ -19,18 +19,19 @@ class Me extends Component {
         });
     };
 
-    changeFilteredProfiles = () => {
-
-        let filteredProfiles = this.props.userDetails.filter((profile) => {
+    filterSocialDetailsByEngagement = ({userDetails}) => {
+        let filteredProfiles = userDetails.filter((profile) => {
             return profile.engagement.includes(this.state.filter)
         });
 
-        if(filteredProfiles.length === 0) filteredProfiles = [...this.props.userDetails];
+        if (filteredProfiles.length === 0) filteredProfiles = [...userDetails];
+        return filteredProfiles;
+    };
 
-        this.setState((currentState) => {
-            return {filteredProfiles: filteredProfiles}
+    changeFilteredProfiles = () => {
+        this.setState((currentState, currentProps) => {
+            return {filteredProfiles: this.filterSocialDetailsByEngagement(currentProps)}
         })
-
     };
 
     render() {
