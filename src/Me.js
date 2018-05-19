@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import SocialDetails from "./SocialDetails";
+import SocialDetail from "./SocialDetail";
 
 class Me extends Component {
 
@@ -42,10 +42,12 @@ class Me extends Component {
                 <ul>
                     {this.state.filteredProfiles.map((detail) => <li key={detail.id}>
 
-                        <SocialDetails socialDetails={detail}/></li>)}
+                        <SocialDetail socialDetail={detail}/></li>)}
                 </ul>
             </div>
-        )}
+        )            
+    }
+
 }
 
 export default Me;
