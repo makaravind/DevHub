@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Me from "./Me";
-import ClassComponentBasics from "./ClassComponentBasics";
-import Counter from "./Counter";
+import Me from "./Me"
+import NameForm from './learn/formBasics';
 
 class App extends Component {
 
@@ -11,66 +8,32 @@ class App extends Component {
         super(props);
 
         this.state = {
-            data: {
-            firstName: 'Aravind',
-            lastName: 'M',
-            image: '',
-            details: [
-                {
-                    id:1,
-                    provider: 'facebook',
-                    username: 'mak11195',
-                    engagement: ['personal'],
-                    link: ''
-                },
-                {
-                    id:2,
-                    provider: 'github',
-                    username: 'makaravind',
-                    engagement: ['professional'],
-                    link: 'https://github.com/makaravind'
-                },
-                {
-                    id:3,
-                    provider: 'gmail',
-                    username: 'aravindmetku@gmail.com',
-                    engagement: ['professional', 'personal'],
-                },
-                {
-                    id:4,
-                    provider: 'youtube',
-                    channel: 'amyourmove',
-                    url: 'youtube.com/c/amyourmove',
-                    engagement: ['professional'],
-                },
-                {
-                    id:5,
-                    provider: 'wordpress',
-                    type: 'blog',
-                    url: 'https://maravindblog.wordpress.com',
-                    engagement: ['professional'],
-                }
-            ]
-        }
+            data: {}
         };
     }
 
-    handleShowCounter = () => {
-        console.log('handleShowCounter');
-        this.setState(currentState => {
-            return {showCounter: false}
-        })
-    };
-
     render() {
         return (
-            <div className="App">
-                <header className="App-header">
-                    <img src={this.state.data.image} className="App-logo" alt="logo"/>
-                    <h1 className="App-title">Welcome {this.state.data.firstName}
-                        {this.state.data.lastName}</h1>
-                </header>
-                <Me userDetails={this.state.data.details}/>
+            <div>
+                {/*compose using children...*/}
+                <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                    <a className="navbar-brand" href="#">Dev Hub</a>
+                    <div className="collapse navbar-collapse">
+                        <div className="navbar-nav">
+                            {/*connect various providers for updates*/}
+                            <a className="nav-item nav-link" href="#">Home</a>
+                            {/* add, edit, sort */}
+                            <a className="nav-item nav-link" href="#">Links</a>
+                            {/* fow now, one task enter, log the time and calculate the end time, attach timer */}
+                            <a className="nav-item nav-link" href="#">Tasker | Pomodoro Timer</a>
+                            {/*track, compare*/}
+                            <a className="nav-item nav-link" href="#">Cryptocurrency Tracker</a>
+                        </div>
+                    </div>
+                </nav>
+
+                <NameForm/>
+                <Me userDetails={this.state.data}/>
             </div>
         );
     }
