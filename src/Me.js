@@ -8,7 +8,7 @@ class Me extends Component {
 
         this.state = {
             filter: '',
-            filteredProfiles: this.props.userDetails.details
+            filteredProfiles: this.props.userDetails.details || []
         }
     }
 
