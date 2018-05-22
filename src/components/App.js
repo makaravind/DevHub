@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import Me from "./Me"
-import Wrapper from './Wrapper';
+import Me from "./home/Me"
+import Wrapper from './global/Wrapper';
 
 class App extends Component {
 
