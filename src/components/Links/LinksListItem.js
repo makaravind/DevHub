@@ -1,16 +1,30 @@
-import React from 'react';
-import Moment from 'react-moment';
+import React, {Component} from 'react';
+import CountDownTimer from './CountDownTimer';
 
-function LinksListItem({link}) {
-    return (
-        <li className='list-group-item'>
-            <div>
-                {link.text} <small><Moment format="MM/DD HH:MM:SS">{link.deferByTime}</Moment></small>
-                <br/>
-                <button type="button" className="btn btn-success">Done</button>
-            </div>
-        </li>
-    )
+class LinksListItem extends Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        const {link} = this.props;
+        return (
+            <li className='list-group-item'>
+                <div>
+                    <p className={link.status === 'EXPIRED' && 'text-danger' || 'text-primary'}>{link.text}</p>
+                    <br/>
+                    <CountDownTimer time={link.deferByTime} id={link.id} onLinkExpired={this.props.onLinkExpired}/>
+                    <br/>
+                    {
+                        link.status !== 'DONE' && <button type="button" className="btn btn-success">Done</button>
+                    }
+                    <button type="button" className="btn btn-info">Edit</button>
+                </div>
+            </li>
+        )
+    }
+
 }
 
 export default LinksListItem

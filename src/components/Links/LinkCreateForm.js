@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+// todo: add validation
 class LinkCreateForm extends Component {
 
     constructor(props) {
@@ -16,10 +17,6 @@ class LinkCreateForm extends Component {
         this.setState({
             [event.target.name]: event.target.value
         })
-    };
-
-    onSave = () => {
-      // update the parent
     };
 
     render() {
@@ -55,7 +52,7 @@ class LinkCreateForm extends Component {
                            onChange={(e) => this.onInputChange(e)}
                            value={this.state.deferByTime}/>
                 </div>
-                <button className="btn btn-primary">save</button>
+                <button className="btn btn-primary" onClick={() => this.props.onSave(this.state)}>save</button>
             </div>
         )
     }

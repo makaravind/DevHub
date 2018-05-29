@@ -12,27 +12,50 @@ class Links extends Component {
             links: [
                 {
                     id: 'e8956e97-e4b6-4d8a-b130-dcf8dea4980f',
-                    text: 'This is sameple text',
+                    text: 'www.google.com',
                     tags: [],
                     createdAt: '1527599546716',
                     deferByTime: '2018-06-01T08:30',
+                    status: 'DONE' // DONE, OK, EXPIRED
                 },
                 {
                     id: 'b9912bb1-b988-45cf-9726-088a71d22e4d',
-                    text: 'This is sameple text 2',
+                    text: 'www.twitter.com',
                     tags: [],
                     createdAt: '1527599546716',
-                    deferByTime: '2018-06-01T08:30',
+                    deferByTime: '2018-05-29T08:30',
+                    status: 'OK'
                 },
             ]
         }
     }
 
+     onSave = (data) => {
+        this.setState({
+            links: [...this.state.links, {...data, id: uuidv4(), createdAt: Date.now(), status: 'OK'}]
+        })
+    };
+
+    onLinkExpired = (id) => {
+        console.log('link expired called ', id);
+        this.setState((currentState) => {
+            const links = currentState.links.map((link) => {
+                if(link.id === id) {
+                    link.status = 'EXPIRED';
+                }
+                return link;
+            });
+            return {links};
+        }, () => {
+            console.log(this.state)
+        });
+    };
+
     render() {
         return (
             <div>
-                <LinkCreateForm/>
-                <LinksList links={this.state.links}/>
+                <LinkCreateForm onSave={this.onSave}/>
+                <LinksList links={this.state.links} onLinkExpired={this.onLinkExpired}/>
             </div>
         )
     }

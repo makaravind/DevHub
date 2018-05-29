@@ -1,10 +1,10 @@
 import React from 'react';
 import LinksListItem from './LinksListItem';
 
-function LinksList({ links }) {
+function LinksList({ links, onLinkExpired }) {
     return (
         <ul className='list-group'>
-            {links.map(link => <LinksListItem key={link.id} link={link}/>)}
+            {links.map(link => <LinksListItem key={link.id} link={link} onLinkExpired={onLinkExpired}/>)}
         </ul>
     )
 }
