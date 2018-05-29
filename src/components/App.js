@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import Me from "./home/Me"
+import Links from './Links/Links';
 import Wrapper from './global/Wrapper';
+import PageNotFound from './global/404';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 class App extends Component {
 
@@ -25,10 +28,20 @@ class App extends Component {
 
     render() {
         return (
-            <Wrapper>
-                <Me userDetails={this.state.data}/>
+            <BrowserRouter>
+             <Wrapper>
+                 <Switch>
+                     <Route exact path='/' render={() => {
+                         return <Me userDetails={this.state.data}/>
+                     }}/>
+                     <Route path='/links' render={() => {
+                         return <Links/>
+                     }}/>
+                     <Route component={PageNotFound}/>
+                 </Switch>
             </Wrapper>
-        );
+            </BrowserRouter>
+        )
     }
 }
 

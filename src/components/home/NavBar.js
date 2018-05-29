@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 function NavBar() {
     return (
@@ -7,9 +8,11 @@ function NavBar() {
             <div className="collapse navbar-collapse">
                 <div className="navbar-nav">
                     {/*connect various providers for updates*/}
-                    <a className="nav-item nav-link" href="#">Home</a>
+                    <Link className="nav-item nav-link" to='/'>Home</Link>
+                    {/*<a className="nav-item nav-link" href="#">Home</a>*/}
                     {/* add, edit, sort */}
-                    <a className="nav-item nav-link" href="#">Links</a>
+                    <Link className="nav-item nav-link" to='/Links'>Links</Link>
+                    {/*<a className="nav-item nav-link" href="#">Links</a>*/}
                     {/* fow now, one task enter, log the time and calculate the end time, attach timer */}
                     <a className="nav-item nav-link" href="#">Tasker | Pomodoro Timer</a>
                     {/*track, compare*/}
