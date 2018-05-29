@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import LinksList from './LinksList';
+import LinkCreateForm from './LinkCreateForm';
 const uuidv4 = require('uuid/v4');
 
 class Links extends Component {
@@ -30,6 +31,7 @@ class Links extends Component {
     render() {
         return (
             <div>
+                <LinkCreateForm/>
                 <LinksList links={this.state.links}/>
             </div>
         )

@@ -3,7 +3,6 @@ import Me from "./home/Me"
 import Links from './Links/Links';
 import Wrapper from './global/Wrapper';
 import PageNotFound from './global/404';
-import ReactRouterBasics from './ReactRouterBasics';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 class App extends Component {
