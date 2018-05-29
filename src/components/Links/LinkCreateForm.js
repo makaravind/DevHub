@@ -19,7 +19,7 @@ class LinkCreateForm extends Component {
     };
 
     onSave = () => {
-      // update the parent
+      this.props.onSave(this.state)
     };
 
     render() {
@@ -55,7 +55,7 @@ class LinkCreateForm extends Component {
                            onChange={(e) => this.onInputChange(e)}
                            value={this.state.deferByTime}/>
                 </div>
-                <button className="btn btn-primary">save</button>
+                <button className="btn btn-primary" onClick={this.onSave}>save</button>
             </div>
         )
     }

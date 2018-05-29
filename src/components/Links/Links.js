@@ -28,11 +28,17 @@ class Links extends Component {
         }
     }
 
+    onSave = (data) => {
+        this.setState({
+            links: [...this.state.links, data]
+        })
+    }
+
     render() {
         return (
             <div>
-                <LinkCreateForm/>
-                <LinksList links={this.state.links}/>
+                <LinkCreateForm onSave={this.onSave}/>
+                <LinksList links={this.state.links} />
             </div>
         )
     }
