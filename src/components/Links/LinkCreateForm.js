@@ -14,9 +14,16 @@ class LinkCreateForm extends Component {
     }
 
     onInputChange = (event) => {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
+        if(event.target.name === 'tags'){
+            this.setState({
+                tags: event.target.value.split(',')
+            })
+        }
+        else {
+            this.setState({
+                [event.target.name]: event.target.value
+            })
+        }
     };
 
     render() {
@@ -28,7 +35,7 @@ class LinkCreateForm extends Component {
                     </div>
                     <input type="text" className="form-control" aria-label="Small"
                            aria-describedby="inputGroup-sizing-sm"
-                           name='text'
+                           name='text' placeholder="Enter url"
                            onChange={(e) => this.onInputChange(e)}
                            value={this.state.text}/>
                 </div>
@@ -38,7 +45,7 @@ class LinkCreateForm extends Component {
                     </div>
                     <input type="text" className="form-control" aria-label="Small"
                            aria-describedby="inputGroup-sizing-sm"
-                           name='tags'
+                           name='tags' placeholder="Comma seperated"
                            onChange={(e) => this.onInputChange(e)}
                            value={this.state.tags}/>
                 </div>

@@ -13,7 +13,7 @@ class LinksListItem extends Component {
             <li className='list-group-item'>
                 <div>
                     <p className={link.status === 'EXPIRED' && 'text-danger' || 'text-primary'}>{link.text}</p>
-                    <br/>
+                    <p>tags: {link.tags.join(', ')}</p>
                     <CountDownTimer time={link.deferByTime} id={link.id} onLinkExpired={this.props.onLinkExpired}/>
                     <br/>
                     {
