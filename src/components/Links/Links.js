@@ -37,7 +37,6 @@ class Links extends Component {
     };
 
     onLinkExpired = (id) => {
-        console.log('link expired called ', id);
         this.setState((currentState) => {
             const links = currentState.links.map((link) => {
                 if(link.id === id) {
