@@ -5,7 +5,6 @@ class LinkCreateForm extends Component {
 
     constructor(props) {
         super(props);
-
     }
 
     onInputChange = (event) => {
@@ -45,7 +44,7 @@ class LinkCreateForm extends Component {
                            onChange={(e) => this.onInputChange(e)}
                            value={this.props.deferByTime}/>
                 </div>
-                <button className="btn btn-primary" onClick={() => this.props.onSave(this.state)}>save</button>
+                <button className="btn btn-primary" onClick={this.props.onSave}>save</button>
             </div>
         )
     }

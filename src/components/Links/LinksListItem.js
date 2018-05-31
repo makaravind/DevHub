@@ -8,7 +8,7 @@ class LinksListItem extends Component {
     }
 
     render() {
-        const {link} = this.props;
+        const {link, onEdit} = this.props;
         return (
             <li className='list-group-item'>
                 <div>
@@ -19,7 +19,7 @@ class LinksListItem extends Component {
                     {
                         link.status !== 'DONE' && <button type="button" className="btn btn-success">Done</button>
                     }
-                    <button type="button" className="btn btn-info">Edit</button>
+                    <button type="button" className="btn btn-info" onClick={() => onEdit(link)}>Edit</button>
                 </div>
             </li>
         )

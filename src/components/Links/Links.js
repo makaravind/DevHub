@@ -32,25 +32,58 @@ class Links extends Component {
                 text: '',
                 tags: '',
                 deferByTime: '',
-            }
+            },
+            isEditing: false
         }
     }
 
-    onSave = (data) => {
-        this.setState({
-            links: [...this.state.links, {...data, id: uuidv4(), createdAt: Date.now(), status: 'OK'}]
+    onSave = () => {
+        if (this.state.isEditing) {
+            this.setState({
+                links: this.modifyLinkItem(this.state.form),
+                isEditing: false
+            })
+        } else {
+            this.setState({
+                links: this.appendNewLinkItem(this.state.form)
+            })
+        }
+    };
+
+    modifyLinkItem = (data) => {
+        return this.state.links.map(link => {
+            /*
+            // no ES6
+            if(link.id === data.id) {
+                link.text = data.text;
+                link.deferByTime = data.deferByTime;
+                link.tags = data.tags
+            }
+            return link;
+            */
+            // with ES6
+            if(link.id === data.id) return {...link, ...data};
+            return link;
         })
+    };
+
+    appendNewLinkItem = (data) => {
+        return [...this.state.links, {...data, id: uuidv4(), createdAt: Date.now(), status: 'OK'}];
     };
 
     onInputChange = (value, name) => {
         this.setState(() => {
-
             const form = {
                 ...this.state.form,
                 [name]: value
             };
-
             return {form};
+        })
+    };
+
+    onEdit = (linkInfo) => {
+        this.setState(() => {
+            return {form: linkInfo, isEditing: true};
         })
     };
 
@@ -71,8 +104,18 @@ class Links extends Component {
     render() {
         return (
             <div>
-                <LinkCreateForm onSave={this.onSave} {...this.state.form} onInputChange={this.onInputChange}/>
-                <LinksList links={this.state.links} onLinkExpired={this.onLinkExpired}/>
+                <LinkCreateForm
+                    onSave={this.onSave}
+                    {...this.state.form}
+                    onInputChange={this.onInputChange}
+                    isEditing={this.state.isEditing}
+                />
+
+                <LinksList
+                    links={this.state.links}
+                    onLinkExpired={this.onLinkExpired}
+                    onEdit={this.onEdit}
+                />
             </div>
         )
     }
