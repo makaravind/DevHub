@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {Component} from 'react';
 import LinksListItem from './LinksListItem';
 
+// presentaional, dumb, state-less, functional
 function LinksList({ links, onLinkExpired }) {
     return (
         <ul className='list-group'>

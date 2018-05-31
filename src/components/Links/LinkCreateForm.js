@@ -6,17 +6,10 @@ class LinkCreateForm extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            text: '',
-            tags: '',
-            deferByTime: '',
-        }
     }
 
     onInputChange = (event) => {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
+        this.props.onInputChange(event.target.value, event.target.name);
     };
 
     render() {
@@ -30,7 +23,7 @@ class LinkCreateForm extends Component {
                            aria-describedby="inputGroup-sizing-sm"
                            name='text'
                            onChange={(e) => this.onInputChange(e)}
-                           value={this.state.text}/>
+                           value={this.props.text}/>
                 </div>
                 <div className="input-group input-group-sm mb-3">
                     <div className="input-group-prepend">
@@ -40,7 +33,7 @@ class LinkCreateForm extends Component {
                            aria-describedby="inputGroup-sizing-sm"
                            name='tags'
                            onChange={(e) => this.onInputChange(e)}
-                           value={this.state.tags}/>
+                           value={this.props.tags}/>
                 </div>
                 <div className="input-group input-group-sm mb-3">
                     <div className="input-group-prepend">
@@ -50,7 +43,7 @@ class LinkCreateForm extends Component {
                            aria-describedby="inputGroup-sizing-sm"
                            name='deferByTime'
                            onChange={(e) => this.onInputChange(e)}
-                           value={this.state.deferByTime}/>
+                           value={this.props.deferByTime}/>
                 </div>
                 <button className="btn btn-primary" onClick={() => this.props.onSave(this.state)}>save</button>
             </div>

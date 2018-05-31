@@ -19,7 +19,7 @@ class App extends Component {
 
     componentDidMount() {
         window.API().then((data) => {
-            console.log('got data', data);
+            // console.log('got data', data);
             this.setState(() => ({
                 data: data
             }))
