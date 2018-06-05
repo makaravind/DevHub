@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import Me from "./home/Me"
+import Check from './home/check';
 import Links from './Links/Links';
 import Wrapper from './global/Wrapper';
 import PageNotFound from './global/404';
@@ -30,7 +32,7 @@ class App extends Component {
         return (
             <BrowserRouter>
              <Wrapper>
-                 <Switch>
+                 {/*<Switch>
                      <Route exact path='/' render={() => {
                          return <Me userDetails={this.state.data}/>
                      }}/>
@@ -38,11 +40,22 @@ class App extends Component {
                          return <Links/>
                      }}/>
                      <Route component={PageNotFound}/>
-                 </Switch>
+                 </Switch>*/}
+                 <Check check={this.props.check}/>
             </Wrapper>
             </BrowserRouter>
         )
     }
 }
 
-export default App;
+function mapStateToProps(state, ownProps) {
+    return {
+        check: state.check
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+
+}
+
+export default connect(mapStateToProps) (App);

@@ -4,7 +4,7 @@ import NavBar from '../home/NavBar';
 function Wrapper({children}) {
     return(
         <div>
-            <NavBar/>
+            <NavBar />
             {children}
         </div>
     )

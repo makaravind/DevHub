@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {connect, connectAdvanced, createProvider, Provider} from 'react-redux'
+import {Provider} from 'react-redux';
 import App from './components/App';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-
+import configureStore from './store/configureStore';
 window.API = () => {
     const data = {
         firstName: 'Aravind',
@@ -61,4 +62,12 @@ window.API = () => {
     })
 
 };
-ReactDOM.render(<App/>, document.getElementById('root'));
+
+
+
+const store = configureStore();
+ReactDOM.render(
+            <Provider store={store}>
+                <App/>
+            </Provider>
+            , document.getElementById('root'));
