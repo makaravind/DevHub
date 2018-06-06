@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {connect, connectAdvanced, createProvider, Provider} from 'react-redux'
-import {Provider} from 'react-redux';
+import {Provider} from 'react-redux'
 import App from './components/App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import configureStore from './store/configureStore';
+
 window.API = () => {
     const data = {
         firstName: 'Aravind',
