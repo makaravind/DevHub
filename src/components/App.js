@@ -6,6 +6,7 @@ import Links from './Links/Links';
 import Wrapper from './global/Wrapper';
 import PageNotFound from './global/404';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {checkNow} from '../actions/checkActions';
 
 class App extends Component {
 
@@ -28,6 +29,12 @@ class App extends Component {
         });
     }
 
+    checkFn = () => {
+      // change the name to 'redux react is working'
+        // dipatch the action CHECK
+        this.props.checkNow('redux react is working');
+    };
+
     render() {
         return (
             <BrowserRouter>
@@ -41,7 +48,10 @@ class App extends Component {
                      }}/>
                      <Route component={PageNotFound}/>
                  </Switch>*/}
-                 <Check check={this.props.check}/>
+                 <Check
+                     check={this.props.check}
+                     checkFn={this.checkFn}
+                 />
             </Wrapper>
             </BrowserRouter>
         )
@@ -55,7 +65,9 @@ function mapStateToProps(state, ownProps) {
 }
 
 function mapDispatchToProps(dispatch) {
-
+    return {
+        checkNow: newName => dispatch(checkNow(newName))
+    }
 }
 
-export default connect(mapStateToProps) (App);
+export default connect(mapStateToProps, mapDispatchToProps) (App);

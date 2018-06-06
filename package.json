@@ -11,7 +11,8 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "node-uuid": "^1.4.8"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -20,7 +21,6 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "node-uuid": "^1.4.8",
     "redux-devtools-extension": "^2.13.2"
   }
 }
