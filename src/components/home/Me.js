@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import SocialDetail from "./SocialDetail";
 import SocialDetailCreateForm from './SocialDetailCreateForm';
+import {loadMeDetails} from '../../actions/meActions';
 
 class Me extends Component {
 
@@ -10,6 +12,12 @@ class Me extends Component {
         this.state = {
             filter: ''
         }
+    }
+
+    componentDidMount() {
+        // ask for my state
+        // by dispatching action LOAD_ME_DETAILS
+        this.props.loadMeDetails();
     }
 
     handleFilterChange = (event) => {
@@ -37,23 +45,22 @@ class Me extends Component {
                     <h1 className="App-title">Welcome {this.props.userDetails.firstName}
                         {this.props.userDetails.lastName}</h1>
                 </header>
-                <div className="container-fluid">
-                    <h1>My Social Presence</h1>
-                    {/*// TODO: create provider filter */}
-                    {/*<SocialDetailCreateForm/>*/}
-                    <input className="form-control" type="text" value={this.state.filter}
-                           placeholder="personal/professional" onChange={(e) => this.handleFilterChange(e)}/>
-                    <ul className="list-group">
-                        {this.getFilterProfiles().map(detail =>
-                            <li key={detail.id} className="list-group-item">
-                                <SocialDetail socialDetail={detail}/>
-                            </li>
-                        )}
-                    </ul>
-                </div>
             </div>
         )
     }
 }
 
-export default Me
+function mapStateToProps(state) {
+    return {
+        userDetails: state.userDetails
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    // todo
+    return {
+        loadMeDetails: () => dispatch(loadMeDetails())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Me)

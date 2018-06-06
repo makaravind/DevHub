@@ -39,7 +39,7 @@ class App extends Component {
         return (
             <BrowserRouter>
              <Wrapper>
-                 {/*<Switch>
+                 <Switch>
                      <Route exact path='/' render={() => {
                          return <Me userDetails={this.state.data}/>
                      }}/>
@@ -47,11 +47,11 @@ class App extends Component {
                          return <Links/>
                      }}/>
                      <Route component={PageNotFound}/>
-                 </Switch>*/}
-                 <Check
-                     check={this.props.check}
-                     checkFn={this.checkFn}
-                 />
+                 </Switch>
+                 {/*<Check*/}
+                     {/*check={this.props.check}*/}
+                     {/*checkFn={this.checkFn}*/}
+                 {/*/>*/}
             </Wrapper>
             </BrowserRouter>
         )
@@ -66,7 +66,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        checkNow: newName => dispatch(checkNow(newName))
+        checkNow: newName => checkNow(dispatch, newName)
     }
 }
 

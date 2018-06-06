@@ -1,1 +1,3 @@
 export const CHECK = 'CHECK';
+export const LOAD_ME_DETAILS = 'LOAD_ME_DETAILS';
+export const LOAD_ME_DETAILS_SUCCESS = 'LOAD_ME_DETAILS_SUCCESS';
